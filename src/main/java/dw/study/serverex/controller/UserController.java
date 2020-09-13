@@ -18,15 +18,14 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/{username}")
+    @PostMapping("/{username}") //회원가입
     public ResponseEntity<?> signUp(@PathVariable("username") String username){
         return new ResponseEntity<>(
                 userService.join(userService.checkDuplicateUser(username)),
-//                userService.checkDuplicateUser(username),
                 HttpStatus.OK);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/{username}") //유저 찾기
     public ResponseEntity<?> findUser(@PathVariable("username") String username){
         return new ResponseEntity<>(
                 userService.getUser(username),
