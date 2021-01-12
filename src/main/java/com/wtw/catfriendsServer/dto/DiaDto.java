@@ -7,22 +7,23 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class DiaDto {
-    private Long did;
-    private String originFilename;
-    private String filename;
-    private String filepath;
+    private Long id;
+//    private String originFilename;
+//    private String filename;
+//    private String filepath;
     private String description;
     private Integer diaNum;
     private Integer actualNum;
 
     public Dia toEntity(){
         Dia build = Dia.builder()
-                .did(did)
-                .originFilename(originFilename)
-                .filename(filename)
-                .filePath(filepath)
+                .id(id)
+//                .originFilename(originFilename)
+//                .filename(filename)
+//                .filePath(filepath)
                 .description(description)
                 .diaNum(diaNum)
                 .actualNum(actualNum)
