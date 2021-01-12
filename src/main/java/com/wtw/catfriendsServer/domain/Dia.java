@@ -9,21 +9,10 @@ import javax.persistence.*;
 @Table(name = "Dia")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-//@AllArgsConstructor
-@Builder
 public class Dia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long did;
-
-    @Column(nullable = false)
-    private String originFilename;
-
-    @Column(nullable = false)
-    private String filename;
-
-    @Column(nullable = false)
-    private String filePath;
+    private Long id;
 
     @Column(nullable = false)
     private String description;
@@ -33,4 +22,12 @@ public class Dia {
 
     @Column(nullable = false)
     private Integer actualNum; //실제 결제되는 돈
+
+    @Builder
+    public Dia(Long id, String description, Integer diaNum, Integer actualNum){
+        this.id = id;
+        this.description = description;
+        this.diaNum = diaNum;
+        this.actualNum = actualNum;
+    }
 }
